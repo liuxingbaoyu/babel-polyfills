@@ -67,8 +67,6 @@ export function logMissing(missingDeps: Set<string>) {
       `\tnpm install --save ${deps}\n` +
       `\tyarn add ${deps}\n`,
   );
-
-  process.exitCode = 1;
 }
 
 let allMissingDeps = new Set<string>();
