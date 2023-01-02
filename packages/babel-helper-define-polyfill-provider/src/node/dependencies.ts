@@ -73,10 +73,7 @@ export function logMissing(missingDeps: Set<string>) {
 
 let allMissingDeps = new Set<string>();
 
-const laterLogMissingDependencies = debounce(() => {
-  logMissing(allMissingDeps);
-  allMissingDeps = new Set<string>();
-}, 100);
+const laterLogMissingDependencies = () => {};
 
 export function laterLogMissing(missingDeps: Set<string>) {
   if (missingDeps.size === 0) return;
