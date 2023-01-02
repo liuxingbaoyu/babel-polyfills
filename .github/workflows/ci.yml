@@ -92,7 +92,7 @@ jobs:
       - name: Test on Node.js latest
         shell: bash
         run: | 
-          yarn jest --ci --color babel-plugin-polyfill-es-shims --maxWorkers=2
+          yarn jest --ci --color babel-plugin-polyfill-es-shims --maxWorkers 2
 
         env:
           BABEL_TYPES_8_BREAKING: true

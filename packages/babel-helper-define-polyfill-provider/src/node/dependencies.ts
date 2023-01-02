@@ -67,11 +67,16 @@ export function logMissing(missingDeps: Set<string>) {
       `\tnpm install --save ${deps}\n` +
       `\tyarn add ${deps}\n`,
   );
+
+  process.exitCode = 1;
 }
 
 let allMissingDeps = new Set<string>();
 
-const laterLogMissingDependencies = () => {};
+const laterLogMissingDependencies = debounce(() => {
+  logMissing(allMissingDeps);
+  allMissingDeps = new Set<string>();
+}, 100);
 
 export function laterLogMissing(missingDeps: Set<string>) {
   if (missingDeps.size === 0) return;
