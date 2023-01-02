@@ -91,7 +91,10 @@ jobs:
         run: yarn build-corejs3-shipped-proposals && gulp build && gulp bundle
       - name: Test on Node.js latest
         shell: bash
-        run: yarn jest --ci --color --detectOpenHandles
+        run: | 
+          yarn jest --ci --color babel-plugin-polyfill
+          yarn jest --ci --color babel-helper-define-polyfill-provider
+
         env:
           BABEL_TYPES_8_BREAKING: true
       - name: Test the esm build
