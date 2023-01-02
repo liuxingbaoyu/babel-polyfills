@@ -90,6 +90,7 @@ jobs:
       - name: Build
         run: yarn build-corejs3-shipped-proposals && gulp build && gulp bundle
       - name: Test on Node.js latest
+        shell: bash
         run: yarn jest --ci --color
         env:
           BABEL_TYPES_8_BREAKING: true
