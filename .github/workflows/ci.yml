@@ -92,9 +92,7 @@ jobs:
       - name: Test on Node.js latest
         shell: bash
         run: | 
-          sed -i 's/process.exitCode = 1/process.exitCode = 2/g' node_modules/jest-runner/build/runTest.js
-          yarn jest --ci --color babel-plugin-polyfill-es-shims
-          
+          yarn jest --ci --color babel-plugin-polyfill-es-shims --maxWorkers=2
 
         env:
           BABEL_TYPES_8_BREAKING: true
