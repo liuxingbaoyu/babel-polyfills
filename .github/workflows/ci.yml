@@ -94,8 +94,9 @@ jobs:
         run: | 
           yarn jest --ci --color babel-plugin-polyfill-corejs3
           yarn jest --ci --color babel-plugin-polyfill-regenerator
-          yarn jest --ci --color babel-plugin-polyfill-es-shims
           yarn jest --ci --color babel-plugin-polyfill-corejs2
+          yarn jest --ci --color babel-plugin-polyfill-es-shims
+          
 
         env:
           BABEL_TYPES_8_BREAKING: true
