@@ -2,7 +2,7 @@ import path from "path";
 import debounce from "lodash.debounce";
 
 import { createRequire } from "module";
-const require = createRequire(import /*::(_)*/.meta.url); // eslint-disable-line
+const require = createRequire(import /*::(_)*/.meta.url);
 
 function myResolve(name: string, basedir: string) {
   return require.resolve(name, { paths: [basedir] }).replace(/\\/g, "/");

@@ -34,9 +34,7 @@ function extractTargets(targets) {
   let resolved;
   transform("code", { method: "usage-global", targets }, ({ targets }) => {
     resolved = targets;
-    return {
-      usageGlobal() {},
-    };
+    return { usageGlobal() {} };
   });
   return resolved;
 }
@@ -66,11 +64,7 @@ describe("shouldInjectPolyfill", () => {
     expect(() =>
       transform(
         "code",
-        {
-          method: "usage-global",
-          include: ["foo"],
-          shouldInjectPolyfill() {},
-        },
+        { method: "usage-global", include: ["foo"], shouldInjectPolyfill() {} },
         () => ({}),
       ),
     ).toThrow(/include.*shouldInjectPolyfill/);
@@ -80,11 +74,7 @@ describe("shouldInjectPolyfill", () => {
     expect(() =>
       transform(
         "code",
-        {
-          method: "usage-global",
-          exclude: ["foo"],
-          shouldInjectPolyfill() {},
-        },
+        { method: "usage-global", exclude: ["foo"], shouldInjectPolyfill() {} },
         () => ({}),
       ),
     ).toThrow(/exclude.*shouldInjectPolyfill/);
@@ -104,9 +94,7 @@ describe("shouldInjectPolyfill", () => {
         },
       },
       ({ shouldInjectPolyfill }) => ({
-        polyfills: {
-          foo: { chrome: 60 },
-        },
+        polyfills: { foo: { chrome: 60 } },
         usageGlobal() {
           shouldInjectPolyfill("foo");
         },
@@ -130,9 +118,7 @@ describe("shouldInjectPolyfill", () => {
         },
       },
       ({ shouldInjectPolyfill }) => ({
-        polyfills: {
-          foo: { chrome: 40 },
-        },
+        polyfills: { foo: { chrome: 40 } },
         usageGlobal() {
           shouldInjectPolyfill("foo");
         },
@@ -155,9 +141,7 @@ describe("shouldInjectPolyfill", () => {
         },
       },
       ({ shouldInjectPolyfill }) => ({
-        polyfills: {
-          foo: { chrome: 60 },
-        },
+        polyfills: { foo: { chrome: 60 } },
         usageGlobal() {
           result = shouldInjectPolyfill("foo");
         },
@@ -180,9 +164,7 @@ describe("shouldInjectPolyfill", () => {
         },
       },
       ({ shouldInjectPolyfill }) => ({
-        polyfills: {
-          foo: { chrome: 40 },
-        },
+        polyfills: { foo: { chrome: 40 } },
         usageGlobal() {
           result = shouldInjectPolyfill("foo");
         },
@@ -194,11 +176,9 @@ describe("shouldInjectPolyfill", () => {
 });
 
 function withAbsoluteImports(absoluteImports) {
-  let resolved;
   transform("code", { method: "usage-global", absoluteImports }, () => ({
     usageGlobal() {},
   }));
-  return resolved;
 }
 
 describe("absoluteImports", () => {

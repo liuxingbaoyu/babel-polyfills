@@ -102,6 +102,7 @@ export default defineProvider<{}>(function ({
         const matchesPolyfill = ({ name }) =>
           name.startsWith(meta.object as any as string);
 
+        // eslint-disable-next-line no-useless-assignment
         let index = -1;
         if (
           // This is the actual method for sure.

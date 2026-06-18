@@ -162,7 +162,6 @@ function instantiateProvider<Options>(
     absoluteImports,
   } = resolveOptions<Options>(options, babelApi);
 
-  // eslint-disable-next-line prefer-const
   let include, exclude;
   let polyfillsSupport;
   let polyfillsNames: Map<string, number> | undefined;

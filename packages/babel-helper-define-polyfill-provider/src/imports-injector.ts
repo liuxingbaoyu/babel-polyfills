@@ -57,9 +57,7 @@ export default class ImportsCachedInjector {
     moduleName: string,
     getVal: (
       isScript: boolean,
-      // eslint-disable-next-line no-undef
       source: t.StringLiteral,
-      // eslint-disable-next-line no-undef
       name: t.Identifier,
     ) => { node: t.Statement | t.Declaration; name: string },
   ) {
